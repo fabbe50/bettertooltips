@@ -34,11 +34,11 @@ public class BetterTooltipsClient implements ClientModInitializer {
 						for (String tag : tags) {
 							if (!tag.isEmpty()) {
 								if (!flag) {
-									lines.add(Text.of("Tags:").shallowCopy().setStyle(Style.EMPTY.withColor(Formatting.GRAY).withUnderline(true)));
+									lines.add(Text.of("Tags:").copyContentOnly().setStyle(Style.EMPTY.withColor(Formatting.GRAY).withUnderline(true)));
 									flag = true;
 								}
 								Text tagText = Text.of(tag);
-								lines.add(tagText.shallowCopy().setStyle(tagText.getStyle().withColor(Formatting.GRAY)));
+								lines.add(tagText.copyContentOnly().setStyle(tagText.getStyle().withColor(Formatting.GRAY)));
 							}
 						}
 					} else {
@@ -55,8 +55,8 @@ public class BetterTooltipsClient implements ClientModInitializer {
 			if (stack.isFood()) {
 				FoodComponent foodComponent = stack.getItem().getFoodComponent();
 				if (foodComponent != null) {
-					lines.add(1, Text.of("Hunger: " + foodComponent.getHunger()).shallowCopy().setStyle(Style.EMPTY.withColor(Formatting.GRAY)));
-					lines.add(2, Text.of("Saturation: " + (foodComponent.getHunger() * foodComponent.getSaturationModifier())).shallowCopy().setStyle(Style.EMPTY.withColor(Formatting.GRAY)));
+					lines.add(1, Text.of("Hunger: " + foodComponent.getHunger()).copyContentOnly().setStyle(Style.EMPTY.withColor(Formatting.GRAY)));
+					lines.add(2, Text.of("Saturation: " + (foodComponent.getHunger() * foodComponent.getSaturationModifier())).copyContentOnly().setStyle(Style.EMPTY.withColor(Formatting.GRAY)));
 				}
 			}
 		});
