@@ -56,7 +56,7 @@ public class BetterTooltipsClient implements ClientModInitializer {
 				FoodComponent foodComponent = stack.getItem().getFoodComponent();
 				if (foodComponent != null) {
 					lines.add(1, Text.of("Hunger: " + foodComponent.getHunger()).shallowCopy().setStyle(Style.EMPTY.withColor(Formatting.GRAY)));
-					lines.add(2, Text.of("Saturation: " + foodComponent.getSaturationModifier()).shallowCopy().setStyle(Style.EMPTY.withColor(Formatting.GRAY)));
+					lines.add(2, Text.of("Saturation: " + (foodComponent.getHunger() * foodComponent.getSaturationModifier())).shallowCopy().setStyle(Style.EMPTY.withColor(Formatting.GRAY)));
 				}
 			}
 		});
